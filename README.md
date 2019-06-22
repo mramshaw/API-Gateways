@@ -1,6 +1,6 @@
 # API Gateways
 
-![API GAteway](images/ApplicationServices_AmazonAPIGateway.svg) ![Cloud Endpoint](images/ApplicationServices_AmazonAPIGateway.svg)
+![API GAteway](images/ApplicationServices_AmazonAPIGateway.svg) ![Cloud Endpoint](images/Cloud_Endpoints.svg)
 
 Getting started with API Gateways (AWS first)
 
