@@ -28,9 +28,9 @@ Starting with AWS, the steps are:
 
 In AWS it is possible to import a Swagger definition:
 
-![Swagger Imported](images/Swagger_Imported.png)
+![Swagger imported](images/Swagger_imported.png)
 
-[Here I imported the Swagger definition from my [Simple REST API](http://github.com/mramshaw/Simple-REST-API) repo.]
+[Here I imported the [Swagger definition](swagger.json) from my [Simple REST API](http://github.com/mramshaw/Simple-REST-API) repo.]
 
 ## Testing
 
