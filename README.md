@@ -4,6 +4,21 @@
 
 Getting started with API Gateways (AWS first)
 
+## Contents
+
+The contents are as follows.
+
+* [Motivation](#motivation)
+* [AWS](#aws)
+    * [Protocal](#protocal)
+    * [Endpoint Type](#endpoint-type)
+* [Swagger](#swagger)
+* [Testing](#testing)
+* [Reference](#reference)
+    * [AWS API Gateway](#aws-api-gateway)
+    * [WebSockets](#websockets)
+* [To Do](#to-do)
+
 ## Motivation
 
 Following the [Single responsibility principle](http://en.wikipedia.org/wiki/Single_responsibility_principle)
@@ -23,6 +38,22 @@ Starting with AWS, the steps are:
 
 1. Sign up for [AWS](http://aws.amazon.com/)
 2. Create an [IAM Administrator](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html)
+
+[This is probably overkill for startups and smaller organizations, however the key takeaway of NOT using the __root__ account for everyday work applies.]
+
+Once you have created a __non-root__ user account you should sign out and sign back in again (and AWS may even force you to do this).
+
+#### Protocol
+
+API Gateway supports REST APIs and [WebSocket APIs](#websockets).
+
+#### Endpoint Type
+
+Endpoints can be [edge-optimized, regional, or private](http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-endpoint-types.html).
+
+The default is __Regional__, which is fine for development or a proof of concept.
+
+Private endpoints require VPCs.
 
 ## Swagger
 
@@ -52,8 +83,16 @@ Amazon API Gateway Documentation
 
     http://docs.aws.amazon.com/apigateway/index.html
 
+#### WebSockets
+
+About WebSocket APIs in API Gateway
+
+    http://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html
+
 ## To Do
 
 - [x] Test with predefined Swagger
+- [ ] Investigate if VPCs are a good fit for serverless
 - [ ] Investigate if it is possible to export Swagger for a defined API Gateway
+- [ ] Test with WebSockets
 - [ ] More testing
