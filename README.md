@@ -67,8 +67,11 @@ In AWS it is possible to import a Swagger definition:
 
 Swagger uses the [OpenAPI Specification](http://swagger.io/specification/) while the API Gateway uses [JSON Schema](#json-schema).
 
-These two specifications overlap to a great deal but are not fully compatible. The Swagger website has a useful page which
-describes the differences:
+![Models are declared using JSON Schema](images/Model_JSON_Schema.png)
+
+These two specifications overlap to a great deal but are not fully compatible. [Perhaps it is for this reason that there does
+not seem to be any way to export a Swagger definition from the API Gateway.] The Swagger website has a useful page which
+describes the differences between the OpenAPI Specification and JSON Schema:
 
     https://swagger.io/docs/specification/data-models/keywords/
 
@@ -127,6 +130,6 @@ Call an API with API Gateway Lambda Authorizers
 
 - [x] Test with predefined Swagger
 - [ ] Investigate if VPCs are a good fit for serverless
-- [ ] Investigate if it is possible to export Swagger for a defined API Gateway
+- [x] Investigate if it is possible to export Swagger for a defined API Gateway
 - [ ] Test with WebSockets
 - [ ] More testing
