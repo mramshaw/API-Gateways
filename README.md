@@ -10,13 +10,15 @@ The contents are as follows.
 
 * [Motivation](#motivation)
 * [AWS](#aws)
-    * [Protocal](#protocal)
+    * [Protocol](#protocol)
     * [Endpoint Type](#endpoint-type)
 * [Swagger](#swagger)
 * [Testing](#testing)
 * [Reference](#reference)
     * [AWS API Gateway](#aws-api-gateway)
+    * [JSON Schema](#json-schema)
     * [WebSockets](#websockets)
+    * [Postman](#postman)
 * [To Do](#to-do)
 
 ## Motivation
@@ -63,9 +65,23 @@ In AWS it is possible to import a Swagger definition:
 
 [Here I imported the [Swagger definition](swagger.json) from my [Simple REST API](http://github.com/mramshaw/Simple-REST-API) repo.]
 
+Swagger uses the [OpenAPI Specification](http://swagger.io/specification/) while the API Gateway uses [JSON Schema](#json-schema).
+
+These two specifications overlap to a great deal but are not fully compatible. The Swagger website has a useful page which
+describes the differences:
+
+    https://swagger.io/docs/specification/data-models/keywords/
+
+> OpenAPI 3.0 uses an extended subset of [JSON Schema Specification](http://json-schema.org/) Wright Draft 00 (aka Draft 5)
+> to describe the data formats. “Extended subset” means that some keywords are supported and
+> some are not, some keywords have slightly different usage than in JSON Schema, and additional
+> keywords are introduced.
+
+__TL;DR__ Swagger can be a useful shortcut to get up and running but cannot be the definitive statement of your API Gateway.
+
 ## Testing
 
-Once everything has been defined it should be simple to test with either `Postman` or `swagger-ui`.
+Once everything has been defined it should be simple to test with either [Postman](#postman) or `swagger-ui`.
 
 For RESTful APIs it should also be straightforward to test with `curl` or `httpie`.
 
@@ -83,11 +99,29 @@ Amazon API Gateway Documentation
 
     http://docs.aws.amazon.com/apigateway/index.html
 
+#### JSON Schema
+
+API Gateway models are defined with JSON Schema:
+
+    http://json-schema.org/
+
+Understanding JSON Schema:
+
+    http://json-schema.org/understanding-json-schema/index.html
+
 #### WebSockets
 
 About WebSocket APIs in API Gateway
 
     http://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html
+
+#### Postman
+
+Call an API with API Gateway Lambda Authorizers
+
+    http://docs.aws.amazon.com/apigateway/latest/developerguide/call-api-with-api-gateway-lambda-authorization.html
+
+[The article shows how to use [Postman](http://www.getpostman.com/) to test an API Gateway API.]
 
 ## To Do
 
