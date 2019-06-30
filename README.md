@@ -14,6 +14,7 @@ The contents are as follows.
     * [Endpoint Type](#endpoint-type)
 * [Swagger](#swagger)
 * [Testing](#testing)
+* [Synchronous](#synchronous)
 * [Networking](#networking)
 * [Reference](#reference)
     * [AWS API Gateway](#aws-api-gateway)
@@ -94,6 +95,22 @@ However the API Gateway also provides good testing tools (and these are probably
 
 It's really a personal preference which testing tools to use.
 
+## Synchronous
+
+Lambda functions are great for glue code in many circumstances. They have multiple uses.
+
+It may not be clear from __node.js__ examples, so it's worth remembering that the API Gateway
+invokes Lambda functions ___synchronously___:
+
+    http://docs.aws.amazon.com/lambda/latest/dg/lambda-services.html
+
+In line with their many uses, Lambda functions can be invoked synchronously __and__ asynchronously;
+this may well affect how they need to be coded (in terms of retries, etc). If they are triggered via
+the API Gateway, then they will be blocking calls.
+
+If they are __only__ invoked via the API Gateway then there is no requirement for queues (DLQs,
+etc).
+
 ## Networking
 
 The general recommendation is to NOT use VPCs:
@@ -108,8 +125,8 @@ Both the flowchart and the quote are from:
 
 As the article states, VPCs add an extra layer of configuration. They will not help with cold starts
 nor will they reduce network latency (in fact they can be expected to make both worse). Also, they
-require ENIs (which are not expensive - but not free either). They may be needed in rare situations
-but otherwise deliver little benefit.
+require ENIs (which are not expensive - but not free either). They will complicate scaling. They may
+be needed in rare situations but otherwise deliver little benefit.
 
 ## Reference
 
