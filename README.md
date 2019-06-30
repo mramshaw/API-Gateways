@@ -14,6 +14,7 @@ The contents are as follows.
     * [Endpoint Type](#endpoint-type)
 * [Swagger](#swagger)
 * [Testing](#testing)
+* [Networking](#networking)
 * [Reference](#reference)
     * [AWS API Gateway](#aws-api-gateway)
     * [JSON Schema](#json-schema)
@@ -73,14 +74,15 @@ These two specifications overlap to a great deal but are not fully compatible. [
 not seem to be any way to export a Swagger definition from the API Gateway.] The Swagger website has a useful page which
 describes the differences between the OpenAPI Specification and JSON Schema:
 
-    https://swagger.io/docs/specification/data-models/keywords/
+    http://swagger.io/docs/specification/data-models/keywords/
 
 > OpenAPI 3.0 uses an extended subset of [JSON Schema Specification](http://json-schema.org/) Wright Draft 00 (aka Draft 5)
 > to describe the data formats. “Extended subset” means that some keywords are supported and
 > some are not, some keywords have slightly different usage than in JSON Schema, and additional
 > keywords are introduced.
 
-__TL;DR__ Swagger can be a useful shortcut to get up and running but cannot be the definitive statement of your API Gateway.
+__TL;DR__ Swagger can be a useful shortcut to get up and running but is probably not suitable for the definitive statement
+of an API for API Gateway purposes.
 
 ## Testing
 
@@ -92,6 +94,23 @@ However the API Gateway also provides good testing tools (and these are probably
 
 It's really a personal preference which testing tools to use.
 
+## Networking
+
+The general recommendation is to NOT use VPCs:
+
+> Don't put your Lambda function in a VPC unless you have to
+
+![VPC flowchart](images/VPC-flowchart4.png)
+
+Both the flowchart and the quote are from:
+
+    http://docs.aws.amazon.com/lambda/latest/dg/best-practices.html#lambda-vpc
+
+As the article states, VPCs add an extra layer of configuration. They will not help with cold starts
+nor will they reduce network latency (in fact they can be expected to make both worse). Also, they
+require ENIs (which are not expensive - but not free either). They may be needed in rare situations
+but otherwise deliver little benefit.
+
 ## Reference
 
 Some useful links follow.
@@ -101,6 +120,10 @@ Some useful links follow.
 Amazon API Gateway Documentation
 
     http://docs.aws.amazon.com/apigateway/index.html
+
+API Gateway Mapping Template and Access Logging Variable Reference
+
+    http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 
 #### JSON Schema
 
@@ -129,7 +152,7 @@ Call an API with API Gateway Lambda Authorizers
 ## To Do
 
 - [x] Test with predefined Swagger
-- [ ] Investigate if VPCs are a good fit for serverless
+- [x] Investigate if VPCs are a good fit for serverless
 - [x] Investigate if it is possible to export Swagger for a defined API Gateway
 - [ ] Test with WebSockets
 - [ ] More testing
