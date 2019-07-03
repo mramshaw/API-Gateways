@@ -36,6 +36,18 @@ API gateways can be used for:
 * Traffic throttling and rate limiting
 * DDOS protection
 
+From:
+
+    http://docs.aws.amazon.com/lambda/latest/dg/with-on-demand-https.html
+
+> Amazon API Gateway also adds a layer between your application users and your app logic that enables the following:
+>
+> * Ability to throttle individual users or requests.
+>
+> * Protect against Distributed Denial of Service attacks.
+>
+> * Provide a caching layer to cache response from your Lambda function.
+
 ## AWS
 
 Starting with AWS, the steps are:
@@ -71,9 +83,9 @@ Swagger uses the [OpenAPI Specification](http://swagger.io/specification/) while
 
 ![Models are declared using JSON Schema](images/Model_JSON_Schema.png)
 
-These two specifications overlap to a great deal but are not fully compatible. [Perhaps it is for this reason that there does
-not seem to be any way to export a Swagger definition from the API Gateway.] The Swagger website has a useful page which
-describes the differences between the OpenAPI Specification and JSON Schema:
+These two specifications overlap to a great deal but are not fully compatible.
+
+The Swagger website has a useful page which describes the differences between the OpenAPI Specification and JSON Schema:
 
     http://swagger.io/docs/specification/data-models/keywords/
 
@@ -125,8 +137,9 @@ Both the flowchart and the quote are from:
 
 As the article states, VPCs add an extra layer of configuration. They will not help with cold starts
 nor will they reduce network latency (in fact they can be expected to make both worse). Also, they
-require ENIs (which are not expensive - but not free either). They will complicate scaling. They may
-be needed in rare situations but otherwise deliver little benefit.
+require Elastic Network Interfaces (or ENIs) for almost every cold start - and ENIs are not free.
+VPCS will also complicate scaling. They may be needed in rare situations but otherwise deliver
+little benefit.
 
 ## Reference
 
@@ -157,6 +170,8 @@ Understanding JSON Schema:
 About WebSocket APIs in API Gateway
 
     http://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html
+
+[WebSockets are not thought to be a good fit for serverless functions, which are stateless.]
 
 #### Postman
 
