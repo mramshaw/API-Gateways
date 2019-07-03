@@ -14,6 +14,7 @@ The contents are as follows.
     * [Endpoint Type](#endpoint-type)
 * [Swagger](#swagger)
 * [Testing](#testing)
+* [X-Ray](#x-ray)
 * [Synchronous](#synchronous)
 * [Networking](#networking)
 * [Reference](#reference)
@@ -107,6 +108,15 @@ However the API Gateway also provides good testing tools (and these are probably
 
 It's really a personal preference which testing tools to use.
 
+## X-Ray
+
+![AWS X-Ray](images/DeveloperTools_AWSX-Ray.png)
+
+In order to gain some visibility into API Gateway networking, it is simple to activate
+[AWS X-Ray](http://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html).
+
+[Sampling rules can be set for X-Ray to avoid the costs associated with sampling every invocation.]
+
 ## Synchronous
 
 Lambda functions are great for glue code in many circumstances. They have multiple uses.
@@ -186,5 +196,6 @@ Call an API with API Gateway Lambda Authorizers
 - [x] Test with predefined Swagger
 - [x] Investigate if VPCs are a good fit for serverless
 - [x] Investigate if it is possible to export Swagger for a defined API Gateway
+- [x] Investigate AWS X-Ray
 - [ ] Test with WebSockets
 - [ ] More testing
