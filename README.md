@@ -17,6 +17,7 @@ The contents are as follows.
 * [X-Ray](#x-ray)
 * [Synchronous](#synchronous)
 * [Networking](#networking)
+* [Pricing](#pricing)
 * [Reference](#reference)
     * [AWS API Gateway](#aws-api-gateway)
     * [JSON Schema](#json-schema)
@@ -150,6 +151,15 @@ nor will they reduce network latency (in fact they can be expected to make both 
 require Elastic Network Interfaces (or ENIs) for almost every cold start - and ENIs are not free.
 VPCS will also complicate scaling. They may be needed in rare situations but otherwise deliver
 little benefit.
+
+## Pricing
+
+Amazon API Gateway pricing:
+
+    http://aws.amazon.com/api-gateway/pricing/
+
+> The API Gateway free tier includes one million API calls, one million messages, and 750,000 connection
+> minutes per month for up to 12 months.
 
 ## Reference
 
