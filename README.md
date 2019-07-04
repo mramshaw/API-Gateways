@@ -16,6 +16,7 @@ The contents are as follows.
 * [Testing](#testing)
 * [X-Ray](#x-ray)
 * [Synchronous](#synchronous)
+* [Authentication](#authentication)
 * [Networking](#networking)
 * [Pricing](#pricing)
 * [Reference](#reference)
@@ -133,6 +134,19 @@ the API Gateway, then they will be blocking calls.
 
 If they are __only__ invoked via the API Gateway then there is no requirement for queues (DLQs,
 etc).
+
+## Authentication
+
+API Gateway endpoints can be secured using AWS_IAM or NONE (i.e. completely open).
+
+For more complicated scenarious there are custom authorizers:
+
+   http://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html
+
+Custom authorizers were announced
+[February 2016](https://aws.amazon.com/blogs/compute/introducing-custom-authorizers-in-amazon-api-gateway/).
+
+It is also possible to restrict access using [VPCs](#networking).
 
 ## Networking
 
