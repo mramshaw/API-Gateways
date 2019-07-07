@@ -102,9 +102,13 @@ of an API for API Gateway purposes.
 
 ## Testing
 
-Once everything has been defined it should be simple to test with either [Postman](#postman) or `swagger-ui`.
+Once an API has been deployed it can be used as a trigger for FaaS (Lambda functions on AWS).
 
-For RESTful APIs it should also be straightforward to test with `curl` or `httpie`.
+SDKs can be generated for Android, javascript, iOS (Objective-C, Swift), Java and Ruby.
+
+Various flavours of `swagger` can be exported, making it simple to test with [Postman](#postman) or `swagger-ui`.
+
+For RESTful APIs it is also straightforward to test with `curl` or `httpie`.
 
 However the API Gateway also provides good testing tools (and these are probably the place to start).
 
@@ -139,7 +143,7 @@ etc).
 
 API Gateway endpoints can be secured using AWS_IAM or NONE (i.e. completely open).
 
-For more complicated scenarious there are custom authorizers:
+For more complicated scenarios there are custom authorizers:
 
    http://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html
 
