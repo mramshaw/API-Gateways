@@ -12,6 +12,7 @@ The contents are as follows.
 * [AWS](#aws)
     * [Protocol](#protocol)
     * [Endpoint Type](#endpoint-type)
+    * [Workflow](#workflow)
 * [Swagger](#swagger)
 * [Testing](#testing)
 * [X-Ray](#x-ray)
@@ -73,6 +74,28 @@ Endpoints can be [edge-optimized, regional, or private](http://docs.aws.amazon.c
 The default is __Regional__, which is fine for development or a proof of concept.
 
 Private endpoints require VPCs.
+
+#### Workflow
+
+When working with Lambda functions, the workflow for individual calls is along the following lines:
+
+    Method Request --> Integration Request --> Method Response --> Integration Response
+
+API Gateway mappings and models can be defined as needed. Defining them can be troublesome.
+
+__Pro Tip:__ Leave the integration response empty for a ___passthrough response___.
+If no mapping is defined the response from the Lambda function will be passed-through as-is.
+My advice would be to check that this does what is expected before defining any models or mappings.
+
+AWS uses a subset of [JSON Schema](http://json-schema.org/), so if you need any specific features,
+be aware that the API Gateway may not support them (you will not be able to save the mapping if
+this is the case).
+
+The API Gateway uses [Apache Velocity](http://velocity.apache.org/) to do the request & response mappings.
+
+The Apache Velocity developer guide is available [here](http://velocity.apache.org/engine/devel/developer-guide.html).
+
+The Apache Velocity templating reference documentation is available [here](http://velocity.apache.org/engine/devel/vtl-reference.html).
 
 ## Swagger
 
