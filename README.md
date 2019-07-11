@@ -13,6 +13,7 @@ The contents are as follows.
     * [Protocol](#protocol)
     * [Endpoint Type](#endpoint-type)
     * [Workflow](#workflow)
+    * [GraphQL](#graphql)
 * [Swagger](#swagger)
 * [Testing](#testing)
 * [X-Ray](#x-ray)
@@ -86,6 +87,8 @@ API Gateway mappings and models can be defined as needed. Defining them can be t
 __Pro Tip:__ Leave the integration response empty for a ___passthrough response___.
 If no mapping is defined the response from the Lambda function will be passed-through as-is.
 My advice would be to check that this does what is expected before defining any models or mappings.
+In fact, for performance reasons (no response-processing in the API Gateway) this is probably the
+optimal situation.
 
 AWS uses a subset of [JSON Schema](http://json-schema.org/), so if you need any specific features,
 be aware that the API Gateway may not support them (you will not be able to save the mapping if
@@ -96,6 +99,20 @@ The API Gateway uses [Apache Velocity](http://velocity.apache.org/) to do the re
 The Apache Velocity developer guide is available [here](http://velocity.apache.org/engine/devel/developer-guide.html).
 
 The Apache Velocity templating reference documentation is available [here](http://velocity.apache.org/engine/devel/vtl-reference.html).
+
+#### GraphQL
+
+[GraphQL](http://graphql.org/) describes itself as "A query language for your API".
+
+If your only reason for considering GraphQL is over-fetching, it is simple to create a new endpoint
+for your API and only return a subset of fields (whether or not this is "RESTful" is another issue).
+
+This endpoint can then be protected, rate-limited or cached by the API Gateway as appropriate.
+
+__TL;DR__ The API Gateway can provide a limited subset of GraphQL capabilities.
+
+[This is easier than using GraphQL as the API Gateway enables caching and rate-limiting, which are
+ non-trivial with GraphQL.]
 
 ## Swagger
 
