@@ -17,6 +17,8 @@ The contents are as follows.
 * [GCP](#gcp)
     * [Cloud Endpoints Portal](#cloud-endpoints-portal)
 * [Swagger](#swagger)
+    * [Swagger with AWS](#swagger-with-aws)
+    * [Swagger with GCP](#swagger-with-gcp)
 * [Testing](#testing)
 * [X-Ray](#x-ray)
 * [Synchronous](#synchronous)
@@ -126,16 +128,15 @@ The Google equivalent to AWS API Gateway are their [Cloud Endpoints](http://clou
 
 #### Cloud Endpoints Portal
 
-Google Endpoints can be examined with their
-[Cloud Endpoints Portal](http://cloud.google.com/endpoints/docs/frameworks/dev-portal-overview)
-which seemds to be the equivalent of a swagger definition exported from API Gateway and then
-imported into either `Postman` or `swagger-ui`. It allows developers to explore the API.
-
-You can even try it with your own API:
-
-![Try your own API](images/Try_your_own_API.png)
+Google Endpoints can be examined with their [Cloud Endpoints Portal](#swagger-with-gcp).
 
 ## Swagger
+
+[Swagger](http://swagger.io/) is a great tool for defining and publishing APIs.
+
+[There is also [RAML](http://raml.org/) but as both AWS and GCP support a swagger workflow I won't be looking at RAML.]
+
+#### Swagger with AWS
 
 In AWS it is possible to import a Swagger definition:
 
@@ -161,17 +162,36 @@ The Swagger website has a useful page which describes the differences between th
 __TL;DR__ Swagger can be a useful shortcut to get up and running but is probably not suitable for the definitive statement
 of an API for API Gateway purposes.
 
+#### Swagger with GCP
+
+Google Endpoints can be examined with their
+[Cloud Endpoints Portal](http://cloud.google.com/endpoints/docs/frameworks/dev-portal-overview)
+which seems to be the Google equivalent to exporting a swagger definition from API Gateway and then
+importing it into `Postman` or `swagger-ui`: ___it allows developers to explore the API___.
+
+There is a demo version of this [portal](http://endpointsportal.endpoints-portal-demo.cloud.goog/) which you can even try with your own API:
+
+![Try your own API](images/Try_your_own_API.png)
+
+[Google seems to support OpenAPI v2, also they seem to be very cognizant that a startup may view an API as confidential.]
+
+Here I import the [Swagger definition](swagger.json) from my [Simple REST API](http://github.com/mramshaw/Simple-REST-API) repo:
+
+![Swagger imported into Portal](images/Swagger_imported_into_Portal.png)
+
 ## Testing
 
-Once an API has been deployed it can be used as a trigger for FaaS (Lambda functions on AWS).
+On AWS, once an API has been deployed it can be used as a trigger for FaaS (Lambda functions on AWS).
 
 SDKs can be generated for Android, javascript, iOS (Objective-C, Swift), Java and Ruby.
 
 Various flavours of `swagger` can be exported, making it simple to test with [Postman](#postman) or `swagger-ui`.
 
+For Google, it is probably simplest to test with their Cloud Endpoints Portal.
+
 For RESTful APIs it is also straightforward to test with `curl` or `httpie`.
 
-However the API Gateway also provides good testing tools (and these are probably the place to start).
+However, for AWS their API Gateway also provides good testing tools (and these are probably the place to start).
 
 It's really a personal preference which testing tools to use.
 
