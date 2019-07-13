@@ -1,8 +1,8 @@
 # API Gateways
 
-![API GAteway](images/ApplicationServices_AmazonAPIGateway.svg) ![Cloud Endpoint](images/Cloud_Endpoints.svg)
+![API Gateway](images/ApplicationServices_AmazonAPIGateway.svg) ![Cloud Endpoint](images/Cloud_Endpoints.svg)
 
-Getting started with API Gateways (AWS first)
+Getting started with API Gateways (AWS versus GCP, starting with AWS first)
 
 ## Contents
 
@@ -14,6 +14,8 @@ The contents are as follows.
     * [Endpoint Type](#endpoint-type)
     * [Workflow](#workflow)
     * [GraphQL](#graphql)
+* [GCP](#gcp)
+    * [Cloud Endpoints Portal](#cloud-endpoints-portal)
 * [Swagger](#swagger)
 * [Testing](#testing)
 * [X-Ray](#x-ray)
@@ -114,6 +116,25 @@ __TL;DR__ The API Gateway can provide a limited subset of GraphQL capabilities.
 [This is easier than using GraphQL as the API Gateway enables caching and rate-limiting, which are
  non-trivial with GraphQL.]
 
+## GCP
+
+The Google equivalent to AWS API Gateway are their [Cloud Endpoints](http://cloud.google.com/endpoints/).
+
+> Develop, deploy, protect and monitor your APIs with Google Cloud Endpoints. An NGINX-based proxy and distributed architecture give
+> unparalleled performance and scalability. Using an Open API Specification or one of our API frameworks, Cloud Endpoints gives you
+> the tools you need for every phase of API development and provides insight with Stackdriver Monitoring, Trace and Logging. 
+
+#### Cloud Endpoints Portal
+
+Google Endpoints can be examined with their
+[Cloud Endpoints Portal](http://cloud.google.com/endpoints/docs/frameworks/dev-portal-overview)
+which seemds to be the equivalent of a swagger definition exported from API Gateway and then
+imported into either `Postman` or `swagger-ui`. It allows developers to explore the API.
+
+You can even try it with your own API:
+
+![Try your own API](images/Try_your_own_API.png)
+
 ## Swagger
 
 In AWS it is possible to import a Swagger definition:
@@ -188,7 +209,7 @@ For more complicated scenarios there are custom authorizers:
    http://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html
 
 Custom authorizers were announced
-[February 2016](https://aws.amazon.com/blogs/compute/introducing-custom-authorizers-in-amazon-api-gateway/).
+[February 2016](http://aws.amazon.com/blogs/compute/introducing-custom-authorizers-in-amazon-api-gateway/).
 
 It is also possible to restrict access using [VPCs](#networking).
 
@@ -265,5 +286,6 @@ Call an API with API Gateway Lambda Authorizers
 - [x] Investigate if VPCs are a good fit for serverless
 - [x] Investigate if it is possible to export Swagger for a defined API Gateway
 - [x] Investigate AWS X-Ray
+- [x] Investigate Google Cloud Endpoints
 - [ ] Test with WebSockets
 - [ ] More testing
