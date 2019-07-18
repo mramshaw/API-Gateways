@@ -13,6 +13,7 @@ The contents are as follows.
     * [Protocol](#protocol)
     * [Endpoint Type](#endpoint-type)
     * [Workflow](#workflow)
+    * [Caching](#caching)
     * [GraphQL](#graphql)
 * [GCP](#gcp)
     * [Cloud Endpoints Portal](#cloud-endpoints-portal)
@@ -104,6 +105,34 @@ The Apache Velocity developer guide is available [here](http://velocity.apache.o
 
 The Apache Velocity templating reference documentation is available [here](http://velocity.apache.org/engine/devel/vtl-reference.html).
 
+#### Caching
+
+API Gateway caching is a premium service and operates prettty much as you would expect.
+
+> When you enable caching for a stage, only GET methods have caching enabled by default. This helps to ensure the safety
+> and availability of your API. You can enable caching for other methods by
+> [overriding method settings](http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html#override-api-gateway-stage-cache-for-method-cache).
+
+[Note that API Gateway caching is enabled by the stage.]
+
+And:
+
+> The default TTL value for API caching is 300 seconds. The maximum TTL value is 3600 seconds. TTL=0 means caching is disabled.
+
+And:
+
+> Caching is charged by the hour and is not eligible for the AWS free tier.
+
+And:
+
+> When API caching is enabled, you can flush your API stage's entire cache to ensure your API's clients get the most recent responses from your integration endpoints.
+
+From:
+
+    http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html
+
+__TL;DR__ API Gateway caching should not be enabled until it is needed.
+
 #### GraphQL
 
 [GraphQL](http://graphql.org/) describes itself as "A query language for your API".
@@ -125,6 +154,10 @@ The Google equivalent to AWS API Gateway are their [Cloud Endpoints](http://clou
 > Develop, deploy, protect and monitor your APIs with Google Cloud Endpoints. An NGINX-based proxy and distributed architecture give
 > unparalleled performance and scalability. Using an Open API Specification or one of our API frameworks, Cloud Endpoints gives you
 > the tools you need for every phase of API development and provides insight with Stackdriver Monitoring, Trace and Logging. 
+
+Cloud Endpoints went GA [February 13, 2017](http://cloud.google.com/blog/products/gcp/google-cloud-endpoints-now-ga-a-fast-scalable-api-gateway).
+
+[Well worth a read for some background on what the article describes as a "a fast, scalable API gateway'.]
 
 #### Cloud Endpoints Portal
 
@@ -274,6 +307,10 @@ API Gateway Mapping Template and Access Logging Variable Reference
 
     http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 
+Enable API Caching to Enhance Responsiveness
+
+    http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html
+
 #### JSON Schema
 
 API Gateway models are defined with JSON Schema:
@@ -305,7 +342,9 @@ Call an API with API Gateway Lambda Authorizers
 - [x] Test with predefined Swagger
 - [x] Investigate if VPCs are a good fit for serverless
 - [x] Investigate if it is possible to export Swagger for a defined API Gateway
+- [x] Investigate AWS API Gateway Caching
 - [x] Investigate AWS X-Ray
 - [x] Investigate Google Cloud Endpoints
+- [ ] Investigate [Apigee Edge](http://cloud.google.com/apigee/api-management/)
 - [ ] Test with WebSockets
 - [ ] More testing
