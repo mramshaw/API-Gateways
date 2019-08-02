@@ -16,6 +16,7 @@ The contents are as follows.
     * [Caching](#caching)
     * [GraphQL](#graphql)
 * [GCP](#gcp)
+    * [Limiting API Requests](#limiting-api-requests)
     * [Cloud Endpoints Portal](#cloud-endpoints-portal)
 * [Swagger](#swagger)
     * [Swagger with AWS](#swagger-with-aws)
@@ -158,6 +159,15 @@ The Google equivalent to AWS API Gateway are their [Cloud Endpoints](http://clou
 Cloud Endpoints went GA [February 13, 2017](http://cloud.google.com/blog/products/gcp/google-cloud-endpoints-now-ga-a-fast-scalable-api-gateway).
 
 [Well worth a read for some background on what the article describes as a "a fast, scalable API gateway'.]
+
+#### Limiting API Requests
+
+It is possible to rate-limit Google Cloud Endpoints:
+
+    http://cloud.google.com/endpoints/docs/openapi/quotas-overview
+
+[Note that this feature is listed as being in ___Beta___ (or a ___pre-release state___).
+ In Google-speak this means the feature(s) is/are stable but may change in the future.]
 
 #### Cloud Endpoints Portal
 
