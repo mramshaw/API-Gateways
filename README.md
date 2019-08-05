@@ -216,7 +216,8 @@ There is a demo version of this [portal](http://endpointsportal.endpoints-portal
 
 ![Try your own API](images/Try_your_own_API.png)
 
-[Google seems to support OpenAPI v2, also they seem to be very cognizant that a startup may view an API as confidential.]
+[Google supports [OpenAPI v2](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md),
+ also they seem to be very cognizant that a startup may view an API as confidential.]
 
 Here I import the [Swagger definition](swagger.json) from my [Simple REST API](http://github.com/mramshaw/Simple-REST-API) repo:
 
@@ -293,6 +294,8 @@ nor will they reduce network latency (in fact they can be expected to make both 
 require Elastic Network Interfaces (or ENIs) for almost every cold start - and ENIs are not free.
 VPCS will also complicate scaling. They may be needed in rare situations but otherwise deliver
 little benefit.
+
+[Anecdotal reports suggest ENIs add 10 seconds to cold start times.]
 
 ## Pricing
 
